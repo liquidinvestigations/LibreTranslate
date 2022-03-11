@@ -2,9 +2,10 @@
 
 # must use sync for timeout to work:
 # https://github.com/benoitc/gunicorn/issues/2695
+
 exec gunicorn -b 0.0.0.0:5000 \
   --name libre-translate \
   --timeout=600 \
-  --worker-class=sync --workers 4 --threads 1 \
+  --worker-class=sync --workers 8 --threads 1 \
   --max-requests 200 --max-requests-jitter 50 \
   wsgi:app

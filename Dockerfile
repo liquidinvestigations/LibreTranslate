@@ -28,5 +28,8 @@ RUN pip install gunicorn
 RUN pip install . \
   && pip cache purge
 
+ENV OMP_NUM_THREADS=1
+ENV OMP_THREAD_LIMIT=1
+
 EXPOSE 5000
 ENTRYPOINT [ "/app/runserver" ]
