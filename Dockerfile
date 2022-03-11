@@ -22,9 +22,11 @@ RUN if [ "$with_models" = "true" ]; then  \
         ./install_models.py;  \
     fi
 
+RUN pip install gunicorn
+
 # Install package from source code
 RUN pip install . \
   && pip cache purge
 
 EXPOSE 5000
-ENTRYPOINT [ "libretranslate", "--host", "0.0.0.0" ]
+ENTRYPOINT [ "/app/runserver" ]
