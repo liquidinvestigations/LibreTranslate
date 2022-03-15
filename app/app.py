@@ -104,7 +104,7 @@ def create_app(args):
 
     from app.language import languages
 
-    app = Flask(__name__)
+    app = Flask(__name__, static_url_path='/libre_translate/static')
 
     if args.debug:
         app.config["TEMPLATES_AUTO_RELOAD"] = True
